@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+  {% block htmlAttrs %}
+  data-ccs="root"
+  data-ccs-theme="{{ ccs.themes[0] }}"
+  data-ccs-colors
+  {% endblock %}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="OddBird presentation slide decks and demos">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title or [talk, venue] | join(' at ') or 'OddBird Slides' }}</title>
+
+  {% for style in site.styles | concat(styles or []) %}
+    {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
+    <link rel="stylesheet" href="{{ style }}">
+  {% endfor %}
+</head>
+<body data-body="{{ layout or 'base' }}">
+{% block body %}
+  {{ content | safe }}
+{% endblock %}
+
+{% for script in site.scripts | concat(scripts or [])  %}
+  <script type="text/javascript" src="{{ assets.js }}{{ script }}"></script>
+{% endfor %}
+</body>
+</html>

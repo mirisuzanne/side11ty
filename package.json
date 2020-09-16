@@ -9,8 +9,8 @@
   },
   "private": true,
   "engines": {
-    "node": "12.16.2",
-    "yarn": "^2.0.0-rc.32"
+    "node": "12.18.4",
+    "yarn": "2.2.2"
   },
   "scripts": {
     "js": "rollup -c",
@@ -33,7 +33,6 @@
     "site:clean": "rm -rf ./_site/",
     "assets:clean": "rm -rf ./_built/",
     "serve": "npm-run-all build:assets build:site -p eleventy:serve watch:js watch:sass",
-    "test": "jest",
     "build:site": "run-s site:clean sassdoc",
     "build:assets": "npm-run-all assets:clean -p js sass",
     "build": "run-s build:assets build:site eleventy",

@@ -8,6 +8,9 @@ plugins:
   - stylelint-scss
   - stylelint-prettier
 
+ignoreFiles:
+  - '**/*.js'
+
 rules:
   prettier/prettier: true
 

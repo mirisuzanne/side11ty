@@ -10,7 +10,10 @@
   <meta name="description" content="OddBird presentation slide decks and demos">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ title or [talk, venue] | join(' at ') or 'OddBird Slides' }}</title>
+  <title>
+    {{ [title, '|'] | join(' ') if title else '' }}
+    {{ book.title }}
+  </title>
 
   {% for style in site.styles | concat(styles or []) %}
     {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}
@@ -18,6 +21,8 @@
   {% endfor %}
 </head>
 <body data-body="{{ layout or 'base' }}">
+<a href="#main" id="skip">Skip to content</a>
+
 {% block body %}
   {{ content | safe }}
 {% endblock %}

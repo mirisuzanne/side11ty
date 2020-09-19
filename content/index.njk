@@ -1,0 +1,27 @@
+---
+layout: base
+nav:
+  - text: order now
+    url: #@@@
+  - text: read online
+    url: /read/
+---
+
+<header>
+  <h1 id="title" tabindex="-1">
+    {{ book.title }}
+  </h1>
+  <p id="sub">
+    <a href="{{ book.author.url }}" class="h-card">{{ book.author.name }}</a>
+    | {{ book.sub }}
+  </p>
+  <nav>
+    {% for item in nav %}
+      <a href="{{ item.url }}">{{ item.text }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+</main>

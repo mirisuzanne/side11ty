@@ -1,0 +1,35 @@
+$slab: (
+  'name': 'rockingham',
+  'formats': (
+    'woff2',
+    'ttf',
+  ),
+  'normal': 'rockingham/rockingham-regular-webfont',
+  'bold': 'rockingham/rockingham-bold-webfont',
+  'italic': 'rockingham/rockingham-italic-webfont',
+  'bold' 'italic': 'rockingham/rockingham-bolditalic-webfont',
+  'stack': (
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif,
+  ),
+);
+
+$sans: (
+  'name': 'franklin',
+  'formats': (
+    'woff2',
+    'ttf',
+  ),
+  'normal': 'franklin/franklingothic-regular-webfont',
+  'bold': 'franklin/franklingothic-bold-webfont',
+  'italic': 'franklin/franklingothic-italic-webfont',
+  'bold' 'italic': 'franklin/franklingothic-bolditalic-webfont',
+  'stack': (
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif,
+  ),
+);

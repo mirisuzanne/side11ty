@@ -1,27 +1,11 @@
----
-layout: base
-nav:
-  - text: order now
-    url: #@@@
-  - text: read online
-    url: /read/
----
+{% include "header.njk" %}
 
-<header>
-  <h1 id="title" tabindex="-1">
-    {{ book.title }}
-  </h1>
-  <p id="sub">
-    <a href="{{ book.author.url }}" class="h-card">{{ book.author.name }}</a>
-    | {{ book.sub }}
-  </p>
-  <nav>
-    {% for item in nav %}
-      <a href="{{ item.url }}">{{ item.text }}</a>
-    {% endfor %}
-  </nav>
-</header>
-
-<main id="main" tabindex="-1">
-
+<main data-cards>
+  <section id="card:summary">Summary</section>
+  <section id="card:sample-a">Sample A</section>
+  <section id="card:video">Video</section>
+  <section id="card:sample-b">Sample B</section>
+  <section id="card:album">Holes They Leave</section>
+  <section id="card:sample-c">Sample C</section>
+  <section id="card:10myths">10 Myths</section>
 </main>

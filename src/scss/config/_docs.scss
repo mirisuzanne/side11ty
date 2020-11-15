@@ -1,0 +1,16 @@
+@use '~sassdoc-theme-herman/scss/utilities';
+@use 'sass:meta';
+@use 'colors';
+@use 'fonts';
+@use 'scale';
+@use 'tools';
+
+tools.$colors: meta.module-variables('colors');
+tools.$sizes: meta.module-variables('scale');
+tools.$fonts: meta.module-variables('fonts');
+
+@include utilities.herman-add('sizes', 'scale', tools.$sizes);
+
+@each $name, $data in tools.$fonts {
+  @include utilities.herman-add('font', $name, $data);
+}

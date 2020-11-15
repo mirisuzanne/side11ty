@@ -1,0 +1,8 @@
+{% md %}
+<strong>{{ book.title }}</strong>
+© {{ book.year }}--{% year %}
+[{{ book.author.name }}]({{ book.author.url }}) |
+[_some rights reserved_]({{ book.license.url }})
+
+Published by [{{ book.publisher.name }}]({{ book.publisher.url }})
+{% endmd %}

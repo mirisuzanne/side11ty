@@ -1,1 +1,9 @@
+@forward '~cssremedy/css/remedy';
+
+// props
 @forward 'colors';
+@forward 'scale';
+
+// defaults
+@forward 'root';
+@forward 'links';

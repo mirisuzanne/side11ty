@@ -1,26 +1,23 @@
-@use 'sass:color';
+@use '../config/tools';
+@use '~cascading-color-systems/index' as ccs with (
+  $hues: (
+    'prime': 355,
+    'neutral': 195,
+  ),
+  $saturation: 75%,
+  $lightness: 50%,
+  $contrast: 45%,
+  $steps: 6,
+  $fade-background: 20%,
+  $fades: 0.85,
+  $gradients: true,
+  $build: true
+);
 
-html {
-  --contrast-dark: #111;
-  --contrast-light: #eee;
-  --brand: maroon;
-  --dark: #{color.mix(maroon, #111)};
-  --light: #{color.mix(maroon, #eee)};
-
-  --text: var(--contrast-dark);
-  --background: var(--contrast-light);
-  --accent: var(--brand);
-
-  @media (prefers-color-scheme: dark) {
-    --text: var(--contrast-light);
-    --background: var(--contrast-dark);
-    --accent: var(--light);
-  }
-
-  background: var(--background);
-  color: var(--text);
+[data-ccs-colors] {
+  @include tools.tokens--(tools.$colors);
 }
 
-a {
-  color: var(--accent);
+[data-ccs-theme='sidesaddle'] {
+  --ccs-custom-hue: none;
 }

@@ -1,0 +1,39 @@
+@use '../config/colors';
+@use '../config/scale';
+
+a {
+  &:link,
+  &:visited {
+    color: var(--link, colors.$action);
+    text-decoration-color: var(--underline-color, colors.$action-fade);
+    text-decoration-style: var(--underline-style, dashed);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--focus, var(--link, colors.$action-hover));
+    --underline-color: currentColor;
+    --underline-style: dotted;
+  }
+}
+
+.btn-like {
+  &:link,
+  &:visited {
+    --link: var(--text);
+    background: var(--btn);
+    border: medium solid var(--action);
+    border-radius: scale.$radius;
+    display: inline-block;
+    padding: var(--half-shim) var(--gutter);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    --link: var(--action);
+    background: var(--bg);
+    border-color: var(--action-hover);
+  }
+}

@@ -1,0 +1,17 @@
+<header id="cover">
+  <h1 id="title">
+    {{ book.title }}
+  </h1>
+  <p id="byline">
+    <a href="{{ book.author.url }}" class="h-card">{{ book.author.name }}</a>
+    | {{ book.sub }}
+  </p>
+
+  <nav id="cta">
+    <a href="#" class="btn-like">order now »</a>
+    or
+    <a href="/en/" class="btn-like">read online »</a>
+  </nav>
+
+  {% include "neck.svg" %}
+</header>

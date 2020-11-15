@@ -1,0 +1,5 @@
+@use '../config/tools';
+
+html {
+  @include tools.tokens--(tools.$sizes);
+}

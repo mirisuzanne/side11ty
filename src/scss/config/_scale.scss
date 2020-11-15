@@ -1,0 +1,10 @@
+$root-static: 125%;
+$root-calc: calc(#{$root-static} + 0.5vw);
+
+$gutter: 0.75rem;
+$double-gutter: $gutter * 2;
+$shim: $gutter / 2;
+$half-shim: $gutter / 4;
+$quarter-shim: $gutter / 8;
+
+$radius: $quarter-shim;

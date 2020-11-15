@@ -1,7 +1,4 @@
-// @use '~sassdoc-theme-herman/scss/utilities' as herman;
+@use '~sassdoc-theme-herman/scss/utilities';
+@use 'config/docs';
 
-// @include herman.herman-export(herman.$herman);
-
-.test {
-  --hello: world;
-}
+@include utilities.herman-export(utilities.$herman);

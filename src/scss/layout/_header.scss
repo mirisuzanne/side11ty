@@ -1,0 +1,59 @@
+#cover {
+  --overlap: calc(var(--double-gutter) + 3vw);
+  border-bottom: medium dashed var(--border);
+  display: grid;
+  grid-template:
+    '.      .     over  img' minmax(var(--double-gutter), 3fr)
+    't-line title title img' auto
+    's-line sub   sub   img' auto
+    '.      nav   nav   img' auto
+    '.      .     .     img' minmax(var(--gutter), 1fr)
+    / 1fr max-content var(--overlap) minmax(auto, 40vw);
+
+  &::before,
+  &::after {
+    align-self: center;
+    background: linear-gradient(
+        to top,
+        transparent 33%,
+        var(--border) 34% 65%,
+        transparent 66%
+      ),
+      radial-gradient(
+        circle closest-side at calc(100% - 0.1em),
+        var(--border) 99%,
+        transparent 100%
+      );
+    content: '';
+    height: 0.25em;
+    margin-right: var(--gutter);
+  }
+
+  &::before {
+    grid-area: t-line;
+  }
+
+  &::after {
+    grid-area: s-line;
+  }
+}
+
+#title,
+#byline {
+  margin: 0;
+}
+
+#title {
+  grid-area: title;
+}
+
+#byline {
+  color: var(--text-light);
+  grid-area: sub;
+}
+
+#cta {
+  font-size: 0.8em;
+  grid-area: nav;
+  margin-top: var(--gutter);
+}

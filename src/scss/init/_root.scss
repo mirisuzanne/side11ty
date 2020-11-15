@@ -1,0 +1,14 @@
+@use '../config/scale';
+@use '../config/tools';
+
+@include tools.import-webfonts();
+
+html {
+  @include tools.font-family('slab');
+  font-size: scale.$root-static;
+  font-size: scale.$root-calc;
+  line-height: 1.4;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}

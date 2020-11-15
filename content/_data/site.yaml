@@ -1,4 +1,6 @@
 url: https://ridingsidesaddle.com/
 domain: ridingsidesaddle.com
+scripts:
+  - scripts
 styles:
   - screen

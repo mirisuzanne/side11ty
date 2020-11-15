@@ -2,7 +2,7 @@
 <html lang="en"
   {% block htmlAttrs %}
   data-ccs="root"
-  data-ccs-theme="{{ ccs.themes[0] }}"
+  data-ccs-theme="sidesaddle"
   data-ccs-colors
   {% endblock %}>
 <head>
@@ -21,14 +21,19 @@
   {% endfor %}
 </head>
 <body data-body="{{ layout or 'base' }}">
-<a href="#main" id="skip">Skip to content</a>
-
 {% block body %}
   {{ content | safe }}
 {% endblock %}
 
+{% include "colors.njk" %}
+
+<footer>
+{% include "footer.njk" %}
+</footer>
+
 {% for script in site.scripts | concat(scripts or [])  %}
-  <script type="text/javascript" src="{{ assets.js }}{{ script }}"></script>
+  {% set script = script if ('.js' in script) else [assets.js, script, '.js'] | join %}
+  <script type="text/javascript" src="{{ script }}"></script>
 {% endfor %}
 </body>
 </html>

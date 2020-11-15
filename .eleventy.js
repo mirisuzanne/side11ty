@@ -12,6 +12,7 @@ module.exports = (eleventyConfig) => {
   // pass-through
   eleventyConfig.addPassthroughCopy({ _built: 'assets' });
   eleventyConfig.addPassthroughCopy({ 'src/remedy': 'assets/css' });
+  eleventyConfig.addPassthroughCopy({ 'src/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy('assets');
 
   // filters
@@ -28,6 +29,10 @@ module.exports = (eleventyConfig) => {
   // shortcodes
   eleventyConfig.addPairedShortcode('md', type.md);
   eleventyConfig.addPairedShortcode('mdInline', type.mdInline);
+  eleventyConfig.addShortcode('year', () => {
+    const now = new Date();
+    return `${now.getUTCFullYear()}`;
+  });
 
   // config
   eleventyConfig.setLibrary('md', type.mdown);

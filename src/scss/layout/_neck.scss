@@ -11,6 +11,11 @@
   animation: float 34s -23s linear infinite;
 }
 
+.ink,
+.pencil {
+  animation-play-state: var(--animate, paused);
+}
+
 @keyframes float {
   0%,
   5%,

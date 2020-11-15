@@ -36,6 +36,10 @@
   &::after {
     grid-area: s-line;
   }
+
+  &:hover {
+    --animate: running;
+  }
 }
 
 #title,

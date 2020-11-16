@@ -1,5 +1,14 @@
 @use '../config/colors';
 @use '../config/scale';
+@use '../config/tools';
+
+:focus {
+  @include tools.focus-ring;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
 
 a {
   &:link,

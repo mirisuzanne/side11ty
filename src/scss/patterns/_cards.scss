@@ -1,0 +1,87 @@
+@use '../config/tools';
+@use 'sass:math';
+
+[data-cards] {
+  background: var(--card-table);
+  display: grid;
+  justify-items: center;
+  padding: var(--spacer) var(--double-gutter);
+
+  @media (min-width: 40em) {
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  }
+}
+
+[data-card] {
+  --rotate: calc(var(--amt, 2deg) * var(--dir, -1));
+  background: var(--card);
+  border: thin solid var(--border-light);
+  box-shadow: 0 0 var(--offset, var(--half-shim)) var(--shadow);
+  display: grid;
+  grid-template: 'content' 1fr / 100%;
+  font-size: 0.8em;
+  margin: 0;
+  max-width: var(--measure);
+  padding: var(--double-gutter);
+  position: relative;
+  transform: rotate(var(--rotate)) scale(var(--scale, 1));
+  transition: transform 300ms ease-out;
+  width: 100%;
+
+  @for $i from 1 through 24 {
+    &:nth-child(3n + #{$i}) {
+      --amt: #{math.random(12) * 0.5deg};
+    }
+    &:nth-child(5n + #{$i}) {
+      --dir: #{if($i % 2 == 0, 1, -1)};
+    }
+  }
+
+  &:hover,
+  &:focus-within {
+    @include tools.z-index('bump');
+    --rotate: 0;
+    --scale: 1.05;
+    --offset: var(--shim);
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    grid-area: content / content / caption;
+    height: 0;
+    padding-bottom: calc(100% / (5 / 3));
+  }
+}
+
+[data-card~='caption'] {
+  grid-gap: var(--gutter);
+  grid-template: 'content' 1fr 'caption' auto / 100%;
+}
+
+[data-content] {
+  align-self: center;
+  grid-area: content;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+[data-content='embed'] {
+  align-self: stretch;
+  width: 100%;
+  height: auto;
+}
+
+[data-caption] {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  grid-area: caption;
+  text-align: right;
+}

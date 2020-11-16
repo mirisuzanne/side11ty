@@ -1,0 +1,20 @@
+[data-field],
+[data-ccs-field] {
+  margin-bottom: var(--field-bottom, var(--gutter));
+
+  &:last-child {
+    --field-bottom: 0;
+  }
+}
+
+fieldset {
+  border: thin solid var(--border-light);
+}
+
+legend {
+  padding: 0 var(--shim);
+}
+
+label {
+  cursor: pointer;
+}

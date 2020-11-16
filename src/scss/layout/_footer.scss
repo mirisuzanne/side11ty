@@ -1,0 +1,21 @@
+@use '../config/tools';
+
+#contentinfo {
+  border-top: medium dashed var(--border-light);
+  display: grid;
+  font-size: 0.8em;
+  grid-gap: var(--gutter);
+  padding: var(--gutter);
+
+  @media (min-width: 50em) {
+    --align-legal: right;
+    align-items: end;
+    grid-template-columns: repeat(2, minmax(min-content, var(--measure)));
+    justify-content: space-between;
+    padding: var(--double-gutter);
+  }
+}
+
+.legal {
+  text-align: var(--align-legal);
+}

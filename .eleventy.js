@@ -18,6 +18,7 @@ module.exports = (eleventyConfig) => {
   // filters
   eleventyConfig.addFilter('merge', _.merge);
   eleventyConfig.addFilter('concat', _.concat);
+  eleventyConfig.addFilter('shuffle', _.shuffle);
   eleventyConfig.addFilter('group', _.groupBy);
 
   eleventyConfig.addFilter('typogr', type.typogr);

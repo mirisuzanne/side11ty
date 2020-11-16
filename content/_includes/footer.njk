@@ -1,8 +1,13 @@
-{% md %}
-<strong>{{ book.title }}</strong>
-© {{ book.year }}--{% year %}
-[{{ book.author.name }}]({{ book.author.url }}) |
-[_some rights reserved_]({{ book.license.url }})
+{% include "colors.njk" %}
 
-Published by [{{ book.publisher.name }}]({{ book.publisher.url }})
-{% endmd %}
+<div class="legal">
+{% mdInline %}
+<strong>{{ book.title }}</strong> © {{ book.year }}--{% year %} \
+[{{ book.author.name }}]({{ book.author.url }}) |
+[_some rights reserved_]({{ book.license.url }}) \
+Published by [{{ book.publisher.name }}]({{ book.publisher.url }}) \
+[Adapted for stage](https://www.miriamsuzanne.com/theater/10myths/)
+by [Buntport Theater](http://buntport.com/archive/archive.htm)
+& [Teacup Gorilla](http://teacupgorilla.com)
+{% endmdInline %}
+</div>

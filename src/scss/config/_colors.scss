@@ -1,4 +1,4 @@
-$bg: var(--ccs-neutral--bg6);
+$bg: var(--ccs-neutral--bg-full);
 $callout: var(--ccs-neutral--bg5);
 $overlay: var(--ccs-neutral--bg5-fade);
 
@@ -8,6 +8,34 @@ $text-highlight: var(--ccs-prime--fg3);
 
 $border: var(--ccs-neutral--fg1);
 $border-light: var(--ccs-neutral);
+$shadow: hsla(
+  var(--ccs-h--neutral),
+  var(--ccs-s--neutral),
+  var(--shadow-l, var(--ccs-l--fg6)),
+  0.5
+);
+
+$card-table: hsl(
+  var(--ccs-h--neutral),
+  var(--ccs-s--neutral),
+  var(--card-table-l, var(--ccs-l--bg5))
+);
+$card: hsl(
+  var(--ccs-h--neutral),
+  var(--ccs-s--neutral),
+  var(--card-l, var(--ccs-l--bg6))
+);
+
+$range-light: hsl(
+  var(--ccs-h--neutral),
+  var(--ccs-s--neutral),
+  var(--lighter-l, var(--ccs-l--bg5))
+);
+$range-dark: hsl(
+  var(--ccs-h--neutral),
+  var(--ccs-s--neutral),
+  var(--darker-l, var(--ccs-l--fg5))
+);
 
 $btn: var(--ccs-prime--bg5);
 

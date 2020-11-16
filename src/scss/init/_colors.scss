@@ -16,8 +16,15 @@
 
 [data-ccs-colors] {
   @include tools.tokens--(tools.$colors);
+  --shadow-l: #{ccs.if-mode(var(--ccs-l--fg6), var(--ccs-l--bg6))};
+
+  --card-table-l: #{ccs.if-mode(var(--ccs-l--bg5), var(--ccs-l--bg6))};
+  --card-l: #{ccs.if-mode(var(--ccs-l--bg6), var(--ccs-l--bg5))};
+
+  --darker-l: #{ccs.if-mode(var(--ccs-l--fg5), var(--ccs-l--bg5))};
+  --lighter-l: #{ccs.if-mode(var(--ccs-l--bg5), var(--ccs-l--fg5))};
 }
 
-[data-ccs-theme='sidesaddle'] {
-  --ccs-custom-hue: none;
+[data-ccs-colors='auto'] {
+  --ccs-mode--user: initial;
 }

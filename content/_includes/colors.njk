@@ -1,12 +1,11 @@
-<aside data-ccs="menu">
-  <div class="radio-group">
+<div data-ccs="menu">
+  <fieldset data-radio="group" data-ccs-field="mode">
+    <legend>mode:</legend>
     {% for option in ['light', 'dark', 'auto'] %}
-      <div class="radio-option" data-ccs-colors="{{ option }}">
-        <input type="radio" name="drone" data-ccs-input="{{ option }}-mode" id="{{ option }}-mode" {% if option == 'auto' %}checked{% endif %}>
-        <label for="{{ option }}-mode" class="radio-btn">{{ option }}</label>
-      </div>
+      <input type="radio" name="drone" data-radio="input" data-ccs-input="{{ option }}-mode" id="{{ option }}-mode" {% if option == 'auto' %}checked{% endif %}>
+      <label for="{{ option }}-mode" data-ccs-colors="{{ option }}" data-radio="option">{{ option }}</label>
     {% endfor %}
-  </div>
+  </fieldset>
 
   <label data-ccs-field="lightness" for="lightness">
     <span data-label="">lightness:</span>
@@ -17,4 +16,4 @@
     <span data-label="">contrast:</span>
     <input id="contrast" type="range" min="15" max="75" value="{{ ccs.contrast }}" data-ccs-input="contrast">
   </label>
-</aside>
+</div>

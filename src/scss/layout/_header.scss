@@ -1,31 +1,39 @@
+$break: 45em;
+
 #cover {
   --overlap: calc(var(--double-gutter) + 3vw);
   border-bottom: medium dashed var(--border);
   display: grid;
   grid-template:
-    '.      .     over  img' minmax(var(--double-gutter), 3fr)
-    't-line title title img' auto
-    's-line sub   sub   img' auto
+    '.      .     .     .' var(--gutter)
+    't-line title title .' auto
+    's-line sub   sub   .' auto
+    '.      .     .     .' var(--gutter)
+    '.      .     over  img' 3fr
     '.      nav   nav   img' auto
-    '.      .     .     img' minmax(var(--gutter), 1fr)
-    / 1fr max-content var(--overlap) minmax(auto, 40vw);
+    '.      .     .     img' 1fr
+    / minmax(var(--gutter), 1fr) auto auto minmax(var(--gutter), 1fr);
+
+  @media (min-width: $break) {
+    grid-template:
+      '.      .     over  img' minmax(var(--double-gutter), 3fr)
+      't-line title title img' auto
+      's-line sub   sub   img' auto
+      '.      nav   nav   img' auto
+      '.      .     .     img' minmax(var(--gutter), 1fr)
+      / 1fr max-content var(--overlap) minmax(auto, 40vw);
+  }
 
   &::before,
   &::after {
     align-self: center;
-    background: linear-gradient(
-        to top,
-        transparent 33%,
-        var(--border) 34% 65%,
-        transparent 66%
-      ),
-      radial-gradient(
-        circle closest-side at calc(100% - 0.1em),
-        var(--border) 99%,
-        transparent 100%
-      );
+    background: linear-gradient(to top, var(--border), var(--border)),
+      radial-gradient(circle closest-side, var(--border) 99%, transparent 100%);
+    background-position: 0 center, 100% center;
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 6px 6px;
     content: '';
-    height: 0.25em;
+    height: 6px;
     margin-right: var(--gutter);
   }
 
@@ -42,22 +50,22 @@
   }
 }
 
-#title,
-#byline {
-  margin: 0;
-}
-
 #title {
+  font-size: calc(1.5rem + 1vw);
   grid-area: title;
 }
 
 #byline {
   color: var(--text-light);
   grid-area: sub;
+  margin: 0;
 }
 
 #cta {
   font-size: 0.8em;
   grid-area: nav;
-  margin-top: var(--gutter);
+
+  @media (min-width: $break) {
+    margin-top: var(--gutter);
+  }
 }

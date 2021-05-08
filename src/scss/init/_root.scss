@@ -30,3 +30,8 @@ blockquote {
   margin: 0 0 0 calc(var(--shim) * -1);
   padding: 0 0 0 var(--gutter);
 }
+
+figure {
+  margin: 0;
+  padding: 0;
+}

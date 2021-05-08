@@ -1,4 +1,6 @@
 ---
+eleventyNavigation:
+  key: Home
 media_tags:
   tags: [teacupgorilla, music]
 eleventyComputed:
@@ -16,7 +18,7 @@ eleventyComputed:
       tags: [excerpt]
 ---
 
-{% include "header.njk" %}
+{% include "cover.njk" %}
 
 {% set media = [
   book.video | merge(media_tags),

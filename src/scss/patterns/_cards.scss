@@ -26,7 +26,6 @@
   padding: var(--double-gutter);
   position: relative;
   transform: rotate(var(--rotate)) scale(var(--scale, 1));
-  transition: transform 300ms ease-out;
   width: 100%;
 
   @for $i from 1 through 24 {
@@ -38,13 +37,13 @@
     }
   }
 
-  &:hover,
-  &:focus-within {
-    @include tools.z-index('bump');
-    --rotate: 0;
-    --scale: 1.05;
-    --offset: var(--shim);
-  }
+  // &:hover,
+  // &:focus-within {
+  //   @include tools.z-index('bump');
+  //   --rotate: 0;
+  //   --scale: 1.05;
+  //   --offset: var(--shim);
+  // }
 
   &::before {
     content: '';

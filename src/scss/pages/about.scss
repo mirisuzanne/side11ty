@@ -1,0 +1,17 @@
+@use '../config/scale';
+
+#about.page {
+  display: grid;
+  gap: var(--gutter);
+  justify-content: center;
+  justify-items: center;
+  align-items: start;
+
+  @media (min-width: scale.$break) {
+    grid-template-columns: auto minmax(min-content, var(--measure));
+  }
+
+  p {
+    margin-top: 0;
+  }
+}

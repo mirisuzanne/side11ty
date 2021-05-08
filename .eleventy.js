@@ -2,9 +2,31 @@
 
 const yaml = require('js-yaml');
 const _ = require('lodash');
-const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
+const image = require('@11ty/eleventy-img');
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 
 const type = require('./src/filters/type');
+
+const imageShortcode = async (src, alt, sizes) => {
+  const metadata = await image(`./content/images/${src}`, {
+    widths: [300, 600, 900, 1200],
+    formats: ['avif', 'webp', 'jpeg'],
+    urlPath: '/images/',
+    outputDir: './_site/images/',
+  });
+
+  const imageAttributes = {
+    alt,
+    sizes: sizes || '(min-width: 45em) 50vw, 100vw',
+    loading: 'lazy',
+    decoding: 'async',
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return image.generateHTML(metadata, imageAttributes, {
+    whitespaceMode: 'inline',
+  });
+};
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
@@ -35,6 +57,9 @@ module.exports = (eleventyConfig) => {
     return `${now.getUTCFullYear()}`;
   });
 
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
   // config
   eleventyConfig.setLibrary('md', type.mdown);
   eleventyConfig.addDataExtension('yaml', yaml.safeLoad);
@@ -50,24 +75,6 @@ module.exports = (eleventyConfig) => {
     'css',
     '11ty.js',
   ]);
-
-  eleventyConfig.addPlugin(pluginLocalRespimg, {
-    folders: {
-      source: 'content', // Folder images are stored in
-      output: '_site', // Folder images should be output to
-    },
-    images: {
-      resize: {
-        min: 300, // Minimum width to resize an image to
-        max: 1500, // Maximum width to resize an image to
-        step: 300, // Width difference between each resized image
-      },
-      gifToVideo: false, // Convert GIFs to MP4 videos
-      sizes: '100vw', // Default image `sizes` attribute
-      lazy: false, // Include `loading="lazy"` attribute for images
-      additional: ['assets/images/**/**/*'],
-    },
-  });
 
   // settings
   return {

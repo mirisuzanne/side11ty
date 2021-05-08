@@ -42,6 +42,7 @@
   "devDependencies": {
     "#": "link:./src/filters",
     "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.2.0",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.1",
@@ -55,7 +56,6 @@
     "chokidar-cli": "^2.1.0",
     "core-js": "^3.6.5",
     "cssremedy": "^0.1.0-beta.2",
-    "eleventy-plugin-local-respimg": "^0.3.1",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -100,5 +100,8 @@
     "*.{json,yml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^0.8.3"
   }
 }

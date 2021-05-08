@@ -1,28 +1,16 @@
-$break: 45em;
+@use '../config/scale';
 
-#cover {
-  --overlap: calc(var(--double-gutter) + 3vw);
+.page-header {
   border-bottom: medium dashed var(--border);
   display: grid;
   grid-template:
-    '.      .     .     .' var(--gutter)
-    't-line title title .' auto
-    's-line sub   sub   .' auto
-    '.      .     .     .' var(--gutter)
-    '.      .     over  img' 3fr
-    '.      nav   nav   img' auto
-    '.      .     .     img' 1fr
-    / minmax(var(--gutter), 1fr) auto auto minmax(var(--gutter), 1fr);
-
-  @media (min-width: $break) {
-    grid-template:
-      '.      .     over  img' minmax(var(--double-gutter), 3fr)
-      't-line title title img' auto
-      's-line sub   sub   img' auto
-      '.      nav   nav   img' auto
-      '.      .     .     img' minmax(var(--gutter), 1fr)
-      / 1fr max-content var(--overlap) minmax(auto, 40vw);
-  }
+    '.      .     .' var(--spacer)
+    't-line title .' auto
+    's-line sub   .' auto
+    '.      .     .' var(--gutter)
+    '.      nav   .' auto
+    '.      .     .' var(--spacer)
+    / minmax(var(--gutter), 1fr) minmax(min-content, var(--measure)) minmax(var(--gutter), 1fr);
 
   &::before,
   &::after {
@@ -44,8 +32,31 @@ $break: 45em;
   &::after {
     grid-area: s-line;
   }
+}
 
-  &:hover {
+#cover {
+  --overlap: calc(var(--double-gutter) + 3vw);
+  grid-template:
+    '.      .     .     .' var(--gutter)
+    't-line title title .' auto
+    's-line sub   sub   .' auto
+    '.      .     .     .' var(--gutter)
+    '.      .     over  img' 3fr
+    '.      nav   nav   img' auto
+    '.      .     .     img' 1fr
+    / minmax(var(--gutter), 1fr) auto auto minmax(var(--gutter), 1fr);
+
+  @media (min-width: scale.$break) {
+    grid-template:
+      '.      .     over  img' minmax(var(--double-gutter), 3fr)
+      't-line title title img' auto
+      's-line sub   sub   img' auto
+      '.      nav   nav   img' auto
+      '.      .     .     img' minmax(var(--gutter), 1fr)
+      / 1fr max-content var(--overlap) minmax(auto, 40vw);
+  }
+
+  &.animate {
     --animate: running;
   }
 }
@@ -55,17 +66,19 @@ $break: 45em;
   grid-area: title;
 }
 
+#subtitle,
 #byline {
   color: var(--text-light);
   grid-area: sub;
   margin: 0;
 }
 
+#crumb,
 #cta {
   font-size: 0.8em;
   grid-area: nav;
 
-  @media (min-width: $break) {
+  @media (min-width: scale.$break) {
     margin-top: var(--gutter);
   }
 }

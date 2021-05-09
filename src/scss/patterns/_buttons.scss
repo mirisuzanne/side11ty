@@ -1,0 +1,35 @@
+button {
+  cursor: pointer;
+}
+
+[data-btn],
+[data-toggle] {
+  color: var(--text);
+  background: var(--btn);
+  border: medium solid var(--action);
+  border-radius: var(--radius);
+  display: inline-block;
+  padding: var(--half-shim) var(--gutter);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--action);
+    background: var(--bg);
+    border-color: var(--action-hover);
+  }
+
+  &:active {
+    border-color: var(--text);
+    transform: translateY(2px);
+  }
+}
+
+[data-toggle] {
+  &[aria-pressed='false']::before {
+    content: '✘ ';
+  }
+  &[aria-pressed='true']::before {
+    content: '✔ ';
+  }
+}

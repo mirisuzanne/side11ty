@@ -2,6 +2,8 @@
 
 parserOptions:
   sourceType: module
+  ecmaFeatures:
+    impliedStrict: true
 env:
   browser: true
   commonjs: true

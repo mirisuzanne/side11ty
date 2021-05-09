@@ -56,7 +56,7 @@
       / 1fr max-content var(--overlap) minmax(auto, 40vw);
   }
 
-  &.animate {
+  &[data-animate='true'] {
     --animate: running;
   }
 }
@@ -81,4 +81,10 @@
   @media (min-width: scale.$break) {
     margin-top: var(--gutter);
   }
+}
+
+[data-toggle='animate'] {
+  grid-area: -2 / -3 / span 1 / span 2;
+  place-self: end;
+  margin: var(--gutter);
 }

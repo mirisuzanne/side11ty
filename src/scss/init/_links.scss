@@ -1,5 +1,4 @@
 @use '../config/colors';
-@use '../config/scale';
 @use '../config/tools';
 
 :focus {
@@ -33,7 +32,7 @@ a {
     --link: var(--text);
     background: var(--btn);
     border: medium solid var(--action);
-    border-radius: scale.$radius;
+    border-radius: var(--radius);
     display: inline-block;
     padding: var(--half-shim) var(--gutter);
   }

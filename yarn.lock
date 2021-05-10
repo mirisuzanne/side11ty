@@ -6288,6 +6288,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gray-matter@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "gray-matter@npm:4.0.3"
+  dependencies:
+    js-yaml: ^3.13.1
+    kind-of: ^6.0.2
+    section-matter: ^1.0.0
+    strip-bom-string: ^1.0.0
+  checksum: 78f1f3432c01b05035d02c3e259b9f73c794c88651692f4d12c489a9d1a386f6587c1319e9eb788e53d6cd47d6b8ec5b2d14df7cce25b973f68bb9934ccbaf4d
+  languageName: node
+  linkType: hard
+
 "gulp-imagemin@npm:^5.0.3":
   version: 5.0.3
   resolution: "gulp-imagemin@npm:5.0.3"
@@ -12029,6 +12041,7 @@ fsevents@~2.1.2:
     eslint-plugin-prettier: ^3.1.4
     eslint-plugin-simple-import-sort: ^5.0.3
     fs-extra: ^9.0.1
+    gray-matter: ^4.0.3
     husky: ^4.3.0
     js-yaml: ^3.14.0
     lint-staged: ^10.3.0

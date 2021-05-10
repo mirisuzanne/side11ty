@@ -2,18 +2,20 @@ export default function toggle(name) {
   const targetName = `data-${name}`;
   const targetAttr = `[${targetName}]`;
   const btnAttr = `[data-toggle='${name}']`;
-  const target = document.querySelector(targetAttr);
   const toggleBtn = document.querySelector(btnAttr);
 
-  const targetState = () => target.getAttribute(targetName);
+  const getTarget = () => document.querySelector(targetAttr);
+  const targetState = (target) => target.getAttribute(targetName);
 
   const syncState = (to) => {
-    const syncTo = to || targetState();
+    const target = getTarget();
+    const syncTo = to || targetState(target);
     toggleBtn.setAttribute('aria-pressed', syncTo);
   };
 
   const toggleIt = () => {
-    const setTo = targetState() === 'true' ? 'false' : 'true';
+    const target = getTarget();
+    const setTo = targetState(target) === 'true' ? 'false' : 'true';
     target.setAttribute(targetName, setTo);
     syncState(setTo);
   };

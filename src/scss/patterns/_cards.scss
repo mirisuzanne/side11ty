@@ -4,23 +4,42 @@
 [data-cards] {
   background: var(--card-table);
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(45ch, 100%), 1fr));
+  gap: var(--gap, 0);
+  justify-content: center;
   justify-items: center;
   padding: var(--spacer) var(--double-gutter);
 
-  @media (min-width: 40em) {
-    grid-auto-rows: 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  &[data-column='true'] {
+    grid-template-columns: minmax(min-content, var(--measure));
+  }
+
+  &[data-align='true'] {
+    --align: 0;
+    --gap: var(--gutter);
+  }
+}
+
+#controls {
+  background: var(--callout);
+  border-radius: var(--radius);
+  margin: var(--gutter) auto;
+  max-width: var(--measure);
+  padding: var(--gutter);
+
+  p {
+    margin: 0 0 var(--shim);
   }
 }
 
 [data-card] {
-  --rotate: calc(var(--amt, 2deg) * var(--dir, -1));
+  --show-id: ;
+  --rotate: var(--align, calc(var(--amt, 2deg) * var(--dir, -1)));
   background: var(--card);
   border: thin solid var(--border-light);
   box-shadow: 0 0 var(--offset, var(--half-shim)) var(--shadow);
   display: grid;
   grid-template: 'content' 1fr / 100%;
-  font-size: 0.8em;
   margin: 0;
   max-width: var(--measure);
   padding: var(--double-gutter);
@@ -28,35 +47,46 @@
   transform: rotate(var(--rotate)) scale(var(--scale, 1));
   width: 100%;
 
-  @for $i from 1 through 24 {
-    &:nth-child(3n + #{$i}) {
-      --amt: #{math.random(12) * 0.5deg};
-    }
+  @for $i from 1 through 6 {
+    &:nth-child(3n + #{$i}),
     &:nth-child(5n + #{$i}) {
+      --amt: #{math.random(6) * 0.25deg + math.random(6) * 0.5deg};
+    }
+    &:nth-child(5n + #{$i}),
+    &:nth-child(7n + #{$i}) {
       --dir: #{if($i % 2 == 0, 1, -1)};
     }
   }
-
-  // &:hover,
-  // &:focus-within {
-  //   @include tools.z-index('bump');
-  //   --rotate: 0;
-  //   --scale: 1.05;
-  //   --offset: var(--shim);
-  // }
 
   &::before {
     content: '';
     display: block;
     grid-area: content / content / caption;
     height: 0;
-    padding-bottom: calc(100% / (5 / 3));
+    padding-bottom: calc(100% / (17 / 9));
+  }
+
+  &::after {
+    @include tools.position(0 0 null null);
+    background: var(--bg);
+    border-radius: var(--radius);
+    content: var(--show-id, attr(id));
+    font-size: smaller;
+    font-style: italic;
+    margin: var(--half-shim);
+    padding: var(--quarter-shim) var(--shim);
   }
 }
+
+
 
 [data-card~='caption'] {
   grid-gap: var(--gutter);
   grid-template: 'content' 1fr 'caption' auto / 100%;
+}
+
+[data-card~='full'] {
+  padding: 0;
 }
 
 [data-content] {
@@ -78,9 +108,13 @@
   height: auto;
 }
 
+[data-content='image'] {
+  align-self: stretch;
+}
+
 [data-caption] {
   color: var(--text-light);
-  font-size: 0.8rem;
+  font-size: var(--small);
   grid-area: caption;
   text-align: right;
 }

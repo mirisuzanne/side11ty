@@ -11,7 +11,7 @@ layout: base
   {% endif %}
 
   {% if eleventyNavigation and eleventyNavigation.parent %}
-    <nav id="crumb">
+    <nav id="crumb" class="meta">
       {% set key = eleventyNavigation.key %}
       {% set navPages = collections.all | eleventyNavigationBreadcrumb(key) %}
       {% for item in navPages %}

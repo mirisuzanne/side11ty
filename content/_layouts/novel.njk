@@ -1,0 +1,29 @@
+---
+layout: base
+---
+{% import 'cards.njk' as cards %}
+
+<header class="page-header">
+  <h1 id="title">
+    <a href="/" rel="home">{{ book.title }}</a>
+  </h1>
+  <p id="byline">
+    <a href="/about/" class="h-card">{{ book.author.name }}</a>
+    | {{ book.sub }}
+  </p>
+  <div class="meta">
+    {% if version.data.credit %}
+      <p class="credit">
+        <em>{{ version.data.credit | mdInline | safe }}</em>
+      </p>
+    {% endif %}
+    {{ cards.controls() }}
+  </div>
+</header>
+
+<main id="{{ page.url | slug }}">
+
+  <div data-cards data-column="false" data-align="false">
+    {{ cards.list(version.cards) }}
+  </div>
+</main>

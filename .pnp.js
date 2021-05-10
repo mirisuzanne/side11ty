@@ -62,6 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:3.1.4"],
             ["eslint-plugin-simple-import-sort", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:5.0.3"],
             ["fs-extra", "npm:9.0.1"],
+            ["gray-matter", "npm:4.0.3"],
             ["husky", "npm:4.3.0"],
             ["js-yaml", "npm:3.14.0"],
             ["lint-staged", "npm:10.3.0"],
@@ -7284,6 +7285,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-bom-string", "npm:1.0.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:4.0.3", {
+          "packageLocation": "./.yarn/cache/gray-matter-npm-4.0.3-852ae4f34c-78f1f3432c.zip/node_modules/gray-matter/",
+          "packageDependencies": [
+            ["gray-matter", "npm:4.0.3"],
+            ["js-yaml", "npm:3.14.0"],
+            ["kind-of", "npm:6.0.3"],
+            ["section-matter", "npm:1.0.0"],
+            ["strip-bom-string", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["gulp-imagemin", [
@@ -13599,6 +13611,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:3.1.4"],
             ["eslint-plugin-simple-import-sort", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:5.0.3"],
             ["fs-extra", "npm:9.0.1"],
+            ["gray-matter", "npm:4.0.3"],
             ["husky", "npm:4.3.0"],
             ["js-yaml", "npm:3.14.0"],
             ["lint-staged", "npm:10.3.0"],

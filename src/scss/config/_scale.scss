@@ -1,5 +1,9 @@
 $root-static: 125%;
-$root-calc: calc(110% + 0.5vw);
+$root-calc: calc(100% + 0.25vw);
+
+$xlarge: min(1.5rem + 1.5vw, 3rem);
+$large: min(1rem + 1vw, 1.5rem);
+$small: 0.85rem;
 
 $gutter: 0.75rem;
 $double-gutter: $gutter * 2;

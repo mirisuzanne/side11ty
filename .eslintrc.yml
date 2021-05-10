@@ -125,7 +125,7 @@ rules:
   no-path-concat: 2
   no-process-env: 2
   no-process-exit: 2
-  no-sync: 2
+  no-sync: 1
 
   # Stylistic Issues
   func-name-matching: 2

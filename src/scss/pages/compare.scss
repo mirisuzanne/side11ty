@@ -1,0 +1,23 @@
+#compare {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(2, auto);
+  gap: var(--gutter);
+  justify-content: center;
+}
+
+[data-compare] {
+  display: contents;
+  --column: 1;
+
+  &:last-child {
+    --column: 2;
+  }
+
+  [data-card] {
+    --show-id: initial;
+    --rotate: 0;
+    grid-column: var(--column);
+  }
+}

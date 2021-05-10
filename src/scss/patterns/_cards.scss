@@ -45,6 +45,7 @@
   padding: var(--double-gutter);
   position: relative;
   transform: rotate(var(--rotate)) scale(var(--scale, 1));
+  transition: transform 150ms ease-out;
   width: 100%;
 
   @for $i from 1 through 6 {
@@ -77,8 +78,6 @@
     padding: var(--quarter-shim) var(--shim);
   }
 }
-
-
 
 [data-card~='caption'] {
   grid-gap: var(--gutter);

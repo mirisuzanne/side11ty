@@ -12,7 +12,7 @@ const imageShortcode = (src, alt, sizes) => {
     ? `./content${src}`
     : `./content/images/${src}`;
 
-  let options = {
+  const options = {
     widths: [300, 600, 900, 1200],
     formats: ['avif', 'webp', 'jpeg'],
     urlPath: '/images/',
@@ -28,7 +28,8 @@ const imageShortcode = (src, alt, sizes) => {
     decoding: 'async',
   };
 
-  let metadata = image.statsSync(imgSrc, options);
+  // eslint-disable-next-line no-sync
+  const metadata = image.statsSync(imgSrc, options);
   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return image.generateHTML(metadata, imageAttributes, {
     whitespaceMode: 'inline',
@@ -54,7 +55,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('md', type.md);
   eleventyConfig.addFilter('mdInline', type.mdInline);
 
-  eleventyConfig.addFilter('yaml', yaml.safeLoad);
+  eleventyConfig.addFilter('yaml', yaml.load);
 
   // shortcodes
   eleventyConfig.addPairedShortcode('md', type.md);
@@ -69,10 +70,10 @@ module.exports = (eleventyConfig) => {
 
   // config
   eleventyConfig.setLibrary('md', type.mdown);
-  eleventyConfig.addDataExtension('yaml', yaml.safeLoad);
+  eleventyConfig.addDataExtension('yaml', yaml.load);
   eleventyConfig.setQuietMode(true);
   eleventyConfig.setDataDeepMerge(true);
-  eleventyConfig.addWatchTarget("./src/novel/");
+  eleventyConfig.addWatchTarget('./src/novel/');
   eleventyConfig.setTemplateFormats([
     'md',
     'njk',

@@ -1,8 +1,8 @@
 import ccs from 'cascading-color-systems';
 
-import toggle from './toggle';
-import shuffle from './shuffle';
 import filter from './filter';
+import shuffle from './shuffle';
+import toggle from './toggle';
 
 ccs();
 shuffle();

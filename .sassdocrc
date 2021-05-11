@@ -15,10 +15,10 @@ herman:
       url: https://cascading-colors.netlify.com/
     - name: Herman
       url: https://oddbird.net/herman/
-  fontpath: src/fonts/
+  fontPath: src/fonts/
   sass:
-    implementation: 'sass'
-    includepaths: ['src/scss']
-    jsonfile: _built/css/json.css
+    includePaths:
+      - 'src/scss'
+    jsonFile: _built/css/json.css
   nunjucks:
-    templatepath: content/_includes
+    templatePath: content/_includes

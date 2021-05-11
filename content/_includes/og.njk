@@ -1,0 +1,23 @@
+{% set coverUrl %}{% image book.cover, 'cover art', none, true %}{% endset %}
+{% set boxUrl %}{% image book.box, 'cover art', none, true %}{% endset %}
+
+{%- set og_cover = coverUrl | absoluteUrl(site.url)  -%}
+{%- set og_box = boxUrl | absoluteUrl(site.url)  -%}
+
+<meta property="og:locale" content="{{ site.og.locale }}" />
+<meta property="og:type" content="{{ og.type or site.og.type }}" />
+<meta property="og:title" content="{{ fulltitle }}" />
+<meta property="og:image" content="{{ og_cover }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image" content="{{ og_box }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="720" />
+<meta property="og:description" content="{{ book.summary }}" />
+<meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}" />
+<meta property="og:site_name" content="{{ book.title }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="{{ book.summary }}" />
+<meta name="twitter:title" content="{{ fulltitle }}" />
+<meta name="twitter:domain" content="{{ site.url }}" />
+<meta name="twitter:creator" content="@TerribleMia" />

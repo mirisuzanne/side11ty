@@ -3,7 +3,7 @@
   {% for card in cards %}
     {% set type = 'caption' if card.data.tags else none %}
     {% set type = 'full' if card.data.image else type %}
-    <article id="card-{{ loop.index }}" data-card="{{ type }}">
+    <article id="card-{{ loop.index }}" data-card="{{ type }}" data-tags="{{ card.data.tags | join(' ') if card.data.tags else none }}">
       {% if card.data.iframe %}
         <iframe data-content="embed" src="{{ card.data.iframe }}" width="{{ card.data.width }}" height="{{ card.data.height }}" scrolling="no" frameborder="no"></iframe>
       {% elif card.data.image %}
@@ -17,7 +17,9 @@
       {% if card.data.tags %}
         <footer data-caption>
           {% for tag in card.data.tags %}
-            <span class="tag">#{{ tag }}</span>
+            <button data-tag="{{ tag }}">
+              #{{ tag }}
+            </button>
           {% endfor %}
         </footer>
       {% endif %}
@@ -27,11 +29,11 @@
 
 {% macro controls() %}
   <div id="controls">
-    <p class="info">
-      <em>(already shuffled for your convineience)</em>
-    </p>
     <button data-btn="shuffle">↺ shuffle again</button>
-    <button data-toggle="column">single column</button>
-    <button data-toggle="align">align</button>
+    <button data-toggle="column" data-yes="☰" data-no="☷">single column</button>
+    <button data-toggle="align" data-yes="⚌" data-no="☓">align</button>
+    <p class="info">
+      <em>(pre-shuffled for your convenience)</em>
+    </p>
   </div>
 {% endmacro %}

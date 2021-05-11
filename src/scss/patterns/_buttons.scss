@@ -1,22 +1,23 @@
 button {
   cursor: pointer;
+  font: inherit;
 }
 
 [data-btn],
 [data-toggle] {
-  color: var(--text);
   background: var(--btn);
   border: medium solid var(--action);
   border-radius: var(--radius);
+  color: var(--text);
   display: inline-block;
   padding: var(--half-shim) var(--gutter);
 
   &:hover,
   &:focus,
   &:active {
-    color: var(--action);
     background: var(--bg);
     border-color: var(--action-hover);
+    color: var(--action);
   }
 
   &:active {
@@ -25,11 +26,50 @@ button {
   }
 }
 
+// toggle
 [data-toggle] {
-  &[aria-pressed='false']::before {
+  &::before {
     content: '✘ ';
   }
+
+  &[data-no]::before {
+    content: attr(data-no) ' ';
+  }
+
+  &[aria-pressed='true'] {
+    background: var(--action);
+    border-color: var(--action-hover);
+    color: var(--bg);
+  }
+
   &[aria-pressed='true']::before {
     content: '✔ ';
+  }
+
+  &[data-yes][aria-pressed='true']::before {
+    content: attr(data-yes) ' ';
+  }
+}
+
+// tag
+[data-tag] {
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: var(--bg);
+    color: var(--action-hover);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &[aria-pressed='true'] {
+    color: var(--action);
   }
 }

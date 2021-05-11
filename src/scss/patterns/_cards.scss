@@ -1,6 +1,16 @@
 @use '../config/tools';
 @use 'sass:math';
 
+#controls {
+  margin: var(--spacer) auto;
+  max-width: max-content;
+  text-align: center;
+
+  p {
+    margin: var(--shim) 0 0;
+  }
+}
+
 [data-cards] {
   background: var(--card-table);
   display: grid;
@@ -8,7 +18,7 @@
   gap: var(--gap, 0);
   justify-content: center;
   justify-items: center;
-  padding: var(--spacer) var(--double-gutter);
+  margin: var(--spacer) var(--double-gutter);
 
   &[data-column='true'] {
     grid-template-columns: minmax(min-content, var(--measure));
@@ -17,18 +27,6 @@
   &[data-align='true'] {
     --align: 0;
     --gap: var(--gutter);
-  }
-}
-
-#controls {
-  background: var(--callout);
-  border-radius: var(--radius);
-  margin: var(--gutter) auto;
-  max-width: var(--measure);
-  padding: var(--gutter);
-
-  p {
-    margin: 0 0 var(--shim);
   }
 }
 
@@ -72,7 +70,7 @@
     background: var(--bg);
     border-radius: var(--radius);
     content: var(--show-id, attr(id));
-    font-size: smaller;
+    font-size: var(--small);
     font-style: italic;
     margin: var(--half-shim);
     padding: var(--quarter-shim) var(--shim);
@@ -113,7 +111,6 @@
 
 [data-caption] {
   color: var(--text-light);
-  font-size: var(--small);
   grid-area: caption;
   text-align: right;
 }

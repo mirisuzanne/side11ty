@@ -17,11 +17,11 @@ layout: base
         <em>{{ version.data.credit | mdInline | safe }}</em>
       </p>
     {% endif %}
-    {{ cards.controls() }}
   </div>
 </header>
 
 <main id="{{ page.url | slug }}">
+  {{ cards.controls() }}
 
   <div data-cards data-column="false" data-align="false">
     {{ cards.list(version.cards) }}

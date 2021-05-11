@@ -10,10 +10,15 @@
   <meta name="description" content="OddBird presentation slide decks and demos">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    {{ [title, '|'] | join(' ') if title else '' }}
-    {{ book.title }}
-  </title>
+  {% set fulltitle %}
+    {% if fulltitle %}{{ fulltitle }}{% else %}
+      {{ [title, '|'] | join(' ') if title else '' }}
+      {{ book.title }}
+    {% endif %}
+  {% endset %}
+  <title>{{ fulltitle }}</title>
+
+  {% include "og.njk" %}
 
   {% for style in site.styles | concat(styles or []) %}
     {% set style = style if ('.css' in style) else [assets.css, style, '.css'] | join %}

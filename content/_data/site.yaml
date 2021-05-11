@@ -4,3 +4,6 @@ scripts:
   - scripts
 styles:
   - screen
+og:
+  locale: en_US
+  type: book

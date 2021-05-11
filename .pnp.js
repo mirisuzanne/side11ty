@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@11ty/eleventy", "npm:0.12.1"],
             ["@11ty/eleventy-img", "npm:0.8.3"],
             ["@11ty/eleventy-navigation", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:0.2.0"],
+            ["@11ty/eleventy-plugin-rss", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:1.1.1"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/preset-env", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:7.14.1"],
             ["@rollup/plugin-babel", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:5.3.0"],
@@ -191,6 +192,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@11ty/eleventy", "npm:0.12.1"],
             ["@types/11ty__eleventy", null],
             ["dependency-graph", "npm:0.11.0"]
+          ],
+          "packagePeers": [
+            "@11ty/eleventy",
+            "@types/11ty__eleventy"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@11ty/eleventy-plugin-rss", [
+        ["npm:1.1.1", {
+          "packageLocation": "./.yarn/cache/@11ty-eleventy-plugin-rss-npm-1.1.1-3deae4d69a-d02a2283a9.zip/node_modules/@11ty/eleventy-plugin-rss/",
+          "packageDependencies": [
+            ["@11ty/eleventy-plugin-rss", "npm:1.1.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:1.1.1", {
+          "packageLocation": "./.yarn/$$virtual/@11ty-eleventy-plugin-rss-virtual-89a3520689/0/cache/@11ty-eleventy-plugin-rss-npm-1.1.1-3deae4d69a-d02a2283a9.zip/node_modules/@11ty/eleventy-plugin-rss/",
+          "packageDependencies": [
+            ["@11ty/eleventy-plugin-rss", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:1.1.1"],
+            ["@11ty/eleventy", "npm:0.12.1"],
+            ["@types/11ty__eleventy", null],
+            ["debug", "virtual:3e66e50fb54109ec6122bfcf0d4a67e5959f6c4ff1af39bbc3a6eebf9420a8c3aeca9fd993837def7b5b1d9f0a2e484987f0298dd5f1330064c10c2b18b8f8f0#npm:4.3.2"],
+            ["posthtml", "npm:0.15.2"],
+            ["posthtml-urls", "npm:1.0.0"]
           ],
           "packagePeers": [
             "@11ty/eleventy",
@@ -3227,6 +3253,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["any-promise", [
+        ["npm:0.1.0", {
+          "packageLocation": "./.yarn/cache/any-promise-npm-0.1.0-1e4527fbed-01e35a0913.zip/node_modules/any-promise/",
+          "packageDependencies": [
+            ["any-promise", "npm:0.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:1.3.0", {
           "packageLocation": "./.yarn/cache/any-promise-npm-1.3.0-f34eeaa7e7-e829425e4a.zip/node_modules/any-promise/",
           "packageDependencies": [
@@ -7117,6 +7150,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["http-equiv-refresh", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/http-equiv-refresh-npm-1.0.0-3f9c3bfc5b-7e1b82fee7.zip/node_modules/http-equiv-refresh/",
+          "packageDependencies": [
+            ["http-equiv-refresh", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["http-errors", [
         ["npm:1.6.3", {
           "packageLocation": "./.yarn/cache/http-errors-npm-1.6.3-9b5bc0b0a8-850a3bf69f.zip/node_modules/http-errors/",
@@ -8391,6 +8433,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/liquidjs-npm-6.4.3-8905a7bd80-9a58671771.zip/node_modules/liquidjs/",
           "packageDependencies": [
             ["liquidjs", "npm:6.4.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["list-to-array", [
+        ["npm:1.1.0", {
+          "packageLocation": "./.yarn/cache/list-to-array-npm-1.1.0-0978a9c53f-9413613806.zip/node_modules/list-to-array/",
+          "packageDependencies": [
+            ["list-to-array", "npm:1.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -10120,6 +10171,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["parse-srcset", [
+        ["npm:1.0.2", {
+          "packageLocation": "./.yarn/cache/parse-srcset-npm-1.0.2-8acc142245-f79a26845a.zip/node_modules/parse-srcset/",
+          "packageDependencies": [
+            ["parse-srcset", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["parse5", [
         ["npm:6.0.1", {
           "packageLocation": "./.yarn/cache/parse5-npm-6.0.1-70a35a494a-e312014edd.zip/node_modules/parse5/",
@@ -10544,6 +10604,49 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["posthtml", [
+        ["npm:0.15.2", {
+          "packageLocation": "./.yarn/cache/posthtml-npm-0.15.2-233052361a-dac27389dc.zip/node_modules/posthtml/",
+          "packageDependencies": [
+            ["posthtml", "npm:0.15.2"],
+            ["posthtml-parser", "npm:0.7.2"],
+            ["posthtml-render", "npm:1.4.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["posthtml-parser", [
+        ["npm:0.7.2", {
+          "packageLocation": "./.yarn/cache/posthtml-parser-npm-0.7.2-4fb8dc58d4-f2b855cd79.zip/node_modules/posthtml-parser/",
+          "packageDependencies": [
+            ["posthtml-parser", "npm:0.7.2"],
+            ["htmlparser2", "npm:6.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["posthtml-render", [
+        ["npm:1.4.0", {
+          "packageLocation": "./.yarn/cache/posthtml-render-npm-1.4.0-a7b39109c3-b7f9ac2dcd.zip/node_modules/posthtml-render/",
+          "packageDependencies": [
+            ["posthtml-render", "npm:1.4.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["posthtml-urls", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/posthtml-urls-npm-1.0.0-008d5e9821-f3b487511e.zip/node_modules/posthtml-urls/",
+          "packageDependencies": [
+            ["posthtml-urls", "npm:1.0.0"],
+            ["http-equiv-refresh", "npm:1.0.0"],
+            ["list-to-array", "npm:1.1.0"],
+            ["parse-srcset", "npm:1.0.2"],
+            ["promise-each", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["prebuild-install", [
         ["npm:6.1.2", {
           "packageLocation": "./.yarn/cache/prebuild-install-npm-6.1.2-5d6abe684c-680fe93dc9.zip/node_modules/prebuild-install/",
@@ -10669,6 +10772,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["promise-deferred", "npm:2.0.3"],
             ["promise", "npm:7.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["promise-each", [
+        ["npm:2.2.0", {
+          "packageLocation": "./.yarn/cache/promise-each-npm-2.2.0-7bb6b75ba9-de38101fa7.zip/node_modules/promise-each/",
+          "packageDependencies": [
+            ["promise-each", "npm:2.2.0"],
+            ["any-promise", "npm:0.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -12033,6 +12146,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@11ty/eleventy", "npm:0.12.1"],
             ["@11ty/eleventy-img", "npm:0.8.3"],
             ["@11ty/eleventy-navigation", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:0.2.0"],
+            ["@11ty/eleventy-plugin-rss", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:1.1.1"],
             ["@babel/core", "npm:7.14.0"],
             ["@babel/preset-env", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:7.14.1"],
             ["@rollup/plugin-babel", "virtual:10a4b9f35dd7bf43c1783e4e03282ebb5dfa206d9212255a22fb8b02e3ad6e0140b9bd5343d1ab9c62dab94d18e92041381dab981aafebb163ddd8ce2d783d2f#npm:5.3.0"],

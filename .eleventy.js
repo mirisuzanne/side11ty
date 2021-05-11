@@ -4,10 +4,11 @@ const yaml = require('js-yaml');
 const _ = require('lodash');
 const image = require('@11ty/eleventy-img');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
 
 const type = require('./src/filters/type');
 
-const imageShortcode = (src, alt, sizes) => {
+const imageShortcode = (src, alt, sizes, srcOnly) => {
   const imgSrc = src.startsWith('/images/')
     ? `./content${src}`
     : `./content/images/${src}`;
@@ -30,6 +31,12 @@ const imageShortcode = (src, alt, sizes) => {
 
   // eslint-disable-next-line no-sync
   const metadata = image.statsSync(imgSrc, options);
+
+  if (srcOnly) {
+    const data = metadata.jpeg[metadata.jpeg.length - 1];
+    return data.url;
+  }
+
   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return image.generateHTML(metadata, imageAttributes, {
     whitespaceMode: 'inline',
@@ -67,6 +74,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addNunjucksShortcode('image', imageShortcode);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(pluginRss);
 
   // config
   eleventyConfig.setLibrary('md', type.mdown);

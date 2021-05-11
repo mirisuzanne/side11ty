@@ -5,6 +5,9 @@ media_tags:
   tags: [teacupgorilla, music]
 eleventyComputed:
   cards:
+    - image: sidesaddle-2021.jpg
+      alt: Riding SideSaddle* physical copy in a black, white, and red box
+      url: '{{ book.buy }}'
     - md: |
         {{ book.summary }}
       tags: [summary]
@@ -16,8 +19,12 @@ eleventyComputed:
         Herman gasps for air and finds herself alone.
         They wipe the mud from their body.
       tags: [excerpt]
+    - md: |
+        It’s hard to say exactly what happened first.
+      tags: [excerpt]
 ---
 
+{% import 'cards.njk' as cardMacros %}
 {% include "cover.njk" %}
 
 {% set media = [
@@ -26,37 +33,50 @@ eleventyComputed:
 ] %}
 {% set cards = cards | concat(media) | concat(press) | concat(10myths.press) %}
 
-<main data-cards>
-  {% for card in cards | shuffle %}
-    {% set caption = card.credit or card.tags %}
+<main>
+  {{ cardMacros.controls() }}
 
-    <article id="card-{{ loop.index }}" data-card="{{ 'caption' if caption else none }}">
-      {% if card.iframe %}
-        <iframe data-content="embed" src="{{ card.iframe }}" width="{{ card.width }}" height="{{ card.height }}" frameborder="0"></iframe>
-      {% elif card.credit %}
-        <blockquote data-content="press">
-          {{ card.text | md | safe }}
-          <p class="cite">
-            {{ ['---', card.credit] | join | mdInline | safe }},
-            <a href="{{ card.url }}">{{ card.venue }}</a>
-          </p>
-        </blockquote>
-      {% else %}
-        <div data-content>
-          {{ card.md | md | safe }}
-        </div>
-      {% endif %}
+  <div data-cards data-column="false" data-align="false">
+    {% for card in cards | shuffle %}
+      {% set caption = card.credit or card.tags %}
+      {% set type = 'caption' if caption else none %}
 
-      {% if caption %}
-        <footer data-caption>
-          {% for tag in card.tags %}
-            <span class="tag">#{{ tag }}</span>
-          {% endfor %}
-          {% if card.credit %}
-            <span class="tag">#press</span>
-          {% endif %}
-        </footer>
-      {% endif %}
-    </article>
-  {% endfor %}
+      <article id="card-{{ loop.index }}" data-card="{{ 'full' if card.image else type }}">
+        {% if card.iframe %}
+          <iframe data-content="embed" src="{{ card.iframe }}" width="{{ card.width }}" height="{{ card.height }}" frameborder="0"></iframe>
+        {% elif card.credit %}
+          <blockquote data-content="press">
+            {{ card.text | md | safe }}
+            <p class="cite">
+              {{ ['---', card.credit] | join | mdInline | safe }},
+              <a href="{{ card.url }}">{{ card.venue }}</a>
+            </p>
+          </blockquote>
+        {% elif card.image %}
+          <div data-content="image">
+            {% if card.url %}
+              <a href="{{ card.url }}">{% image card.image, card.alt %}</a>
+            {% else %}
+              {% image card.image, card.alt %}
+            {% endif %}
+          </div>
+        {% else %}
+          <div data-content>
+            {{ card.md | md | safe }}
+          </div>
+        {% endif %}
+
+        {% if caption %}
+          <footer data-caption>
+            {% for tag in card.tags %}
+              <span class="tag">#{{ tag }}</span>
+            {% endfor %}
+            {% if card.credit %}
+              <span class="tag">#press</span>
+            {% endif %}
+          </footer>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
 </main>

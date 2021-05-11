@@ -51,6 +51,7 @@
       '.      .     over  img' minmax(var(--double-gutter), 3fr)
       't-line title title img' auto
       's-line sub   sub   img' auto
+      '.      .     .     img' var(--gutter)
       '.      nav   nav   img' auto
       '.      .     .     img' minmax(var(--gutter), 1fr)
       / 1fr max-content var(--overlap) minmax(auto, 40vw);
@@ -62,25 +63,22 @@
 }
 
 #title {
-  font-size: calc(1.5rem + 1vw);
+  --link: var(--text);
+  --underline-color: var(--link);
+  font-size: var(--xlarge);
   grid-area: title;
 }
 
 #subtitle,
 #byline {
   color: var(--text-light);
+  font-size: var(--large);
   grid-area: sub;
   margin: 0;
 }
 
-#crumb,
-#cta {
-  font-size: 0.8em;
+.meta {
   grid-area: nav;
-
-  @media (min-width: scale.$break) {
-    margin-top: var(--gutter);
-  }
 }
 
 [data-toggle='animate'] {

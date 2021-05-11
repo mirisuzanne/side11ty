@@ -1,4 +1,4 @@
 @use '~sassdoc-theme-herman/scss/utilities';
 @use 'config/docs';
 
-@include utilities.herman-export(utilities.$herman);
+@include utilities.export(utilities.$herman);

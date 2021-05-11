@@ -2,6 +2,3 @@ css: /assets/css/
 js: /assets/js/
 fonts: /assets/fonts/
 images: /images/
-sizes:
-  gallery: 50vw
-  person: 30vw

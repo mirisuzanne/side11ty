@@ -1,0 +1,19 @@
+---
+layout: page
+title: Compare
+banner: Compare Translations
+sub: English & Español
+eleventyNavigation:
+  key: About
+  parent: Home
+  title: Compare
+---
+
+{% import 'cards.njk' as cards %}
+
+{% for version in novel %}
+<section data-compare="{{ version.slug }}">
+  <h2>{{ version.data.language }} ({{ version.slug }})</h2>
+  {{ cards.list(version.cards, shuffle=false) }}
+</section>
+{% endfor %}

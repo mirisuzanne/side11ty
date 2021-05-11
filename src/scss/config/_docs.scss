@@ -9,8 +9,8 @@ tools.$colors: meta.module-variables('colors');
 tools.$sizes: meta.module-variables('scale');
 tools.$fonts: meta.module-variables('fonts');
 
-@include utilities.herman-add('sizes', 'scale', tools.$sizes);
+@include utilities.add('sizes', 'scale', tools.$sizes);
 
 @each $name, $data in tools.$fonts {
-  @include utilities.herman-add('font', $name, $data);
+  @include utilities.add('font', $name, $data);
 }

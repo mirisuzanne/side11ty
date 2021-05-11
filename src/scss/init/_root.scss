@@ -35,3 +35,8 @@ figure {
   margin: 0;
   padding: 0;
 }
+
+[hidden] {
+  /* stylelint-disable-next-line declaration-no-important */
+  display: none !important;
+}

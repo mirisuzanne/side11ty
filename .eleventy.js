@@ -7,13 +7,19 @@ const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 
 const type = require('./src/filters/type');
 
-const imageShortcode = async (src, alt, sizes) => {
-  const metadata = await image(`./content/images/${src}`, {
+const imageShortcode = (src, alt, sizes) => {
+  const imgSrc = src.startsWith('/images/')
+    ? `./content${src}`
+    : `./content/images/${src}`;
+
+  const options = {
     widths: [300, 600, 900, 1200],
     formats: ['avif', 'webp', 'jpeg'],
     urlPath: '/images/',
     outputDir: './_site/images/',
-  });
+  };
+
+  image(imgSrc, options);
 
   const imageAttributes = {
     alt,
@@ -22,6 +28,8 @@ const imageShortcode = async (src, alt, sizes) => {
     decoding: 'async',
   };
 
+  // eslint-disable-next-line no-sync
+  const metadata = image.statsSync(imgSrc, options);
   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return image.generateHTML(metadata, imageAttributes, {
     whitespaceMode: 'inline',
@@ -47,7 +55,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter('md', type.md);
   eleventyConfig.addFilter('mdInline', type.mdInline);
 
-  eleventyConfig.addFilter('yaml', yaml.safeLoad);
+  eleventyConfig.addFilter('yaml', yaml.load);
 
   // shortcodes
   eleventyConfig.addPairedShortcode('md', type.md);
@@ -57,15 +65,15 @@ module.exports = (eleventyConfig) => {
     return `${now.getUTCFullYear()}`;
   });
 
-  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+  eleventyConfig.addNunjucksShortcode('image', imageShortcode);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // config
   eleventyConfig.setLibrary('md', type.mdown);
-  eleventyConfig.addDataExtension('yaml', yaml.safeLoad);
+  eleventyConfig.addDataExtension('yaml', yaml.load);
   eleventyConfig.setQuietMode(true);
   eleventyConfig.setDataDeepMerge(true);
-
+  eleventyConfig.addWatchTarget('./src/novel/');
   eleventyConfig.setTemplateFormats([
     'md',
     'njk',

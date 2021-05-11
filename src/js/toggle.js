@@ -1,8 +1,8 @@
 export default function toggle(name) {
   const targetName = `data-${name}`;
   const targetAttr = `[${targetName}]`;
-  const btnAttr = `[data-toggle='${name}']`;
   const target = document.querySelector(targetAttr);
+  const btnAttr = `[data-toggle='${name}']`;
   const toggleBtn = document.querySelector(btnAttr);
 
   const targetState = () => target.getAttribute(targetName);

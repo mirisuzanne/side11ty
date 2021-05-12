@@ -40,13 +40,26 @@
     '.      .     .     .' var(--gutter)
     't-line title title .' auto
     's-line sub   sub   .' auto
+    '.      .     .     .' var(--shim)
+    '.      nav   nav   .' auto
     '.      .     .     .' var(--gutter)
-    '.      .     over  img' 3fr
-    '.      nav   nav   img' auto
-    '.      .     .     img' 1fr
-    / minmax(var(--gutter), 1fr) auto auto minmax(var(--gutter), 1fr);
+    '.      over  img   img' 1fr
+    / minmax(var(--gutter), 0.5fr) var(--overlap) auto minmax(var(--gutter), 1fr);
+
+  @media (min-width: scale.$break * 0.5) {
+    grid-template:
+      '.      .     .     .' var(--gutter)
+      't-line title title .' auto
+      's-line sub   sub   .' auto
+      '.      .     .     .' var(--gutter)
+      '.      .     over  img' 2fr
+      '.      nav   nav   img' auto
+      '.      .     .     img' 1fr
+      / minmax(var(--gutter), 0.5fr) var(--overlap) auto minmax(var(--gutter), 1fr);
+  }
 
   @media (min-width: scale.$break) {
+    --overlap: calc(var(--spacer) + 3vw);
     grid-template:
       '.      .     over  img' minmax(var(--double-gutter), 3fr)
       't-line title title img' auto

@@ -26,6 +26,10 @@ button {
   }
 }
 
+[data-btn='small'] {
+  font-size: var(--small);
+}
+
 // toggle
 [data-toggle] {
   &::before {

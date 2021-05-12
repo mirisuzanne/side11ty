@@ -1,9 +1,11 @@
 @use '../config/tools';
+@use '../config/scale';
 @use 'sass:math';
 
 #controls {
   margin: var(--spacer) auto;
   max-width: max-content;
+  padding: 0 var(--shim);
   text-align: center;
 
   p {
@@ -12,13 +14,14 @@
 }
 
 [data-cards] {
+  --card-padding: var(--gutter);
   background: var(--card-table);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(45ch, 100%), 1fr));
   gap: var(--gap, 0);
   justify-content: center;
   justify-items: center;
-  margin: var(--spacer) var(--double-gutter);
+  margin: var(--spacer) var(--card-padding);
 
   &[data-column='true'] {
     grid-template-columns: minmax(min-content, var(--measure));
@@ -27,6 +30,10 @@
   &[data-align='true'] {
     --align: 0;
     --gap: var(--gutter);
+  }
+
+  @media (min-width: scale.$break) {
+    --card-padding: var(--double-gutter);
   }
 }
 
@@ -40,7 +47,7 @@
   grid-template: 'content' 1fr / 100%;
   margin: 0;
   max-width: var(--measure);
-  padding: var(--double-gutter);
+  padding: var(--card-padding);
   position: relative;
   transform: rotate(var(--rotate)) scale(var(--scale, 1));
   transition: transform 150ms ease-out;
